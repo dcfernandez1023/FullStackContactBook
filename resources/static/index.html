@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		div
+		{
+			background-color: lightblue;
+			font-size: xx-large;
+		}
+
+		button
+		{
+			background-color: white;
+			height: 30px;
+			width: 60px;
+			float: right;
+			text-align: center;
+			border-top-right-radius: 4px;
+		}
+		
+		input
+		{
+			background-color: white;
+			height: 25px;
+			width: 50px;
+			float: right;
+			text-align: center;
+		}
+	</style>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Book</title>
+	
+	<h1 id="PageHeader">
+	<button id="addButton"> ADD </button>
+		Contacts
+	</h1>
+	
+	<script>
+		var addButton = document.getElementById("addButton");
+		addButton.addEventListener("click", redirectPage());
+		
+		function redirectPage()
+		{
+			return function()
+			{
+				window.location.href = "addContactPage.html?eraseCache=true";
+			}
+		}
+	</script>
+</head>
+<body>
+	<script src="ContactPage.js"></script>
+</body>
+</html>
