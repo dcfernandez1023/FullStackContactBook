@@ -29,7 +29,7 @@ function createViewPageElements()
 	var headerBlock = document.createElement("div");
 	var previousButton = document.createElement("input");
 	previousButton.type = "button";
-	previousButton.value = "Previous Page";
+	previousButton.value = "Home Page";
 	previousButton.style = "float: right;";
 	previousButton.addEventListener("click", redirectPage("http://localhost:8080"));
 	headerBlock.appendChild(previousButton);

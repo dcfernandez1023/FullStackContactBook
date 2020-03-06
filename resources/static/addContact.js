@@ -72,6 +72,10 @@ function getInputValues(id)
 			jsonObject.city = document.getElementById("cityBox").value;
 			jsonObject.state = document.getElementById("stateBox").value;
 			jsonObject.zipCode = document.getElementById("zipBox").value;
+			if(jsonObject.type == "" && jsonObject.street == "" && jsonObject.city == "" && jsonObject.state == "" && jsonObject.zipCode == "")
+				{
+				return false;
+				}
 			var jsonString = JSON.stringify(jsonObject);
 			return jsonString; 
 		}
@@ -79,6 +83,10 @@ function getInputValues(id)
 		{
 		jsonObject.type = document.getElementById("pTypeBox").value;
 		jsonObject.number = document.getElementById("numberBox").value;
+		if(jsonObject.type == "" && jsonObject.number == "")
+			{
+			return false;
+			}
 		var jsonString = JSON.stringify(jsonObject);
 		return jsonString; 
 		}
@@ -86,6 +94,10 @@ function getInputValues(id)
 		{
 			jsonObject.firstName = document.getElementById("firstBox").value;
 			jsonObject.lastName = document.getElementById("lastBox").value;
+			if(jsonObject.firstName == "" && jsonObject.lastName == "")
+				{
+				return false;
+				}
 			var jsonString = JSON.stringify(jsonObject);
 			return jsonString; 
 		}
@@ -111,6 +123,11 @@ function createContact(addressBlockId, phoneBlockId, nameBlockId)
 	return function()
 	{
 		var jsonString = getInputValues(nameBlockId);
+		if(!jsonString)
+			{
+			alert("Please enter a first name and last name.");
+			return;
+			}
 		console.log(jsonString);
 		var xmlHttp = new XMLHttpRequest();
 		xmlHttp.open("POST", "http://localhost:8080/createContact", false);
@@ -131,6 +148,10 @@ function createContact(addressBlockId, phoneBlockId, nameBlockId)
 function createAddress(newId, addressBlockId)
 {
 	var jsonString = getInputValues(addressBlockId);
+	if(!jsonString)
+		{
+		return;
+		}
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("POST", "http://localhost:8080/createAddress/".concat(newId), false);
 	xmlHttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
@@ -147,6 +168,10 @@ function createAddress(newId, addressBlockId)
 function createPhone(newId, phoneBlockId)
 {
 	var jsonString = getInputValues(phoneBlockId);
+	if(!jsonString)
+		{
+		return;
+		}
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("POST", "http://localhost:8080/createPhone/".concat(newId), false);
 	xmlHttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
