@@ -27,7 +27,7 @@ public class DbManager
 	
 	private void connectToDb()
 	{
-		ConnectionString connectionString = new ConnectionString("mongodb+srv://bigdom1023:homekeys92@dom-cluster-1numt.mongodb.net/test?retryWrites=true&w=majority");
+		ConnectionString connectionString = new ConnectionString("mongodb+srv://bigdom1023:********@dom-cluster-1numt.mongodb.net/test?retryWrites=true&w=majority");
 		MongoClient mongoClient = MongoClients.create(connectionString);
 		MongoDatabase database = mongoClient.getDatabase("ContactDB");
 		setDatabase(database);
